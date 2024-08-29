@@ -25,7 +25,7 @@ export default function DeletePostPage({ params }: { params: { id: string } }) {
         });
         if (response.ok) {
           // Redirect to posts list if deletion is successful
-          router.push(`/posts/delete/${id}`);
+          router.push('/posts');
         } else {
           console.error("Failed to delete post:", response.statusText);
         }
