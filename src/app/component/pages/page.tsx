@@ -1,6 +1,6 @@
 // app/component/pagination/page.tsx
 
-import { FC } from 'react';
+import React from 'react';
 
 interface PaginationProps {
   currentPage: number;
@@ -8,12 +8,18 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-const CustomPagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+const CustomPagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      onPageChange(page);
+    }
+  };
+
   return (
     <div className="mt-8 flex justify-between items-center">
       <button
         className={`bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 ${currentPage === 1 ? 'cursor-not-allowed opacity-50' : ''}`}
-        onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
+        onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
         Previous
@@ -23,7 +29,7 @@ const CustomPagination: FC<PaginationProps> = ({ currentPage, totalPages, onPage
       </span>
       <button
         className={`bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 ${currentPage === totalPages ? 'cursor-not-allowed opacity-50' : ''}`}
-        onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
+        onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
         Next
@@ -33,4 +39,3 @@ const CustomPagination: FC<PaginationProps> = ({ currentPage, totalPages, onPage
 };
 
 export default CustomPagination;
-
