@@ -84,12 +84,14 @@ const PostsPage = () => {
                           Edit
                         </button>
                       </Link>
+                      <Link  href={`/posts/delete/${post.id}`}>
                       <button
                         onClick={() => handleDelete(post.id)}
                         className="bg-red-500 text-white font-semibold py-2 px-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
                       >
                         Delete
                       </button>
+                        </Link>
                     </div>
                   </div>
                 ))
