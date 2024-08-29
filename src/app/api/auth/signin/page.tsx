@@ -47,7 +47,7 @@ const SignInPage = () => {
             <button
               onClick={handleSignIn}
               disabled={loading}
-              className={flex items-center bg-gradient-to-r from-green-400 to-blue-500 text-white w-full py-4 rounded-lg shadow hover:from-green-500 hover:to-blue-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}}
+              className={`flex items-center bg-gradient-to-r from-green-400 to-blue-500 text-white w-full py-4 rounded-lg shadow hover:from-green-500 hover:to-blue-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               <FaGithub className="w-5 h-5 mr-2 ml-4" />
               {loading ? 'Signing in...' : 'Sign in with GitHub'}
@@ -59,7 +59,7 @@ const SignInPage = () => {
             <button
               onClick={handleSignOut}
               disabled={loading}
-              className={bg-gradient-to-r from-red-500 to-pink-500 text-white w-full py-3 rounded-lg shadow hover:from-red-600 hover:to-pink-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}}
+              className={`bg-gradient-to-r from-red-500 to-pink-500 text-white w-full py-3 rounded-lg shadow hover:from-red-600 hover:to-pink-600 transition duration-300 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
               {loading ? 'Signing out...' : 'Sign out'}
             </button>
